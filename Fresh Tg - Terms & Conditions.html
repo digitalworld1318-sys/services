@@ -1,0 +1,563 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=5.0,user-scalable=yes">
+    <title> VILLAGEE SMS- Terms &amp; Conditions</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --bg-color: #030303;
+            --card-bg: rgba(15, 15, 17, 0.75);
+            --card-border: rgba(255, 255, 255, 0.04);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.25);
+            --danger: #ef4444;
+            --danger-glow: rgba(239, 68, 68, 0.15);
+            --success: #10b981;
+            --success-glow: rgba(16, 185, 129, 0.15);
+            --neon-border: rgba(59, 130, 246, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Animated Premium Motion Background --- */
+        .bg-glow-1 {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -2;
+            animation: floatGlow1 25s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -2;
+            animation: floatGlow2 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatGlow1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, 40px) scale(1.1); }
+            100% { transform: translate(-40px, 80px) scale(0.9); }
+        }
+
+        @keyframes floatGlow2 {
+            0% { transform: translate(0, 0) scale(0.9); }
+            50% { transform: translate(-60px, -40px) scale(1.05); }
+            100% { transform: translate(40px, -80px) scale(1); }
+        }
+
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* --- Header Section --- */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            z-index: 1;
+            border-radius: 50%;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 50%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* --- Glassmorphism Sections --- */
+        .section-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);
+            transform: translateX(-100%);
+            transition: 0.8s;
+        }
+
+        .section-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        .section-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-card:hover {
+            border-color: rgba(59, 130, 246, 0.25);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+            font-size: 14.5px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        ul li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover ul li::before {
+            transform: translateX(3px);
+        }
+
+        .section-card:hover ul li {
+            color: #e5e7eb;
+        }
+
+        /* --- Card Color Themes --- */
+        .alert-box {
+            background: rgba(239, 68, 68, 0.015);
+            border: 1px solid rgba(239, 68, 68, 0.12);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.03);
+        }
+
+        .alert-box h2 {
+            color: var(--danger);
+        }
+
+        .alert-box ul li::before {
+            color: var(--danger);
+        }
+
+        .alert-box:hover {
+            border-color: rgba(239, 68, 68, 0.25);
+        }
+
+        .secure-box {
+            background: rgba(16, 185, 129, 0.015);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.03);
+        }
+
+        .secure-box h2 {
+            color: var(--success);
+        }
+
+        .secure-box ul li::before {
+            color: var(--success);
+        }
+
+        .secure-box:hover {
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        /* --- Footer Section --- */
+        .footer {
+            margin-top: 70px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 320px;
+            background: linear-gradient(135deg, #18181b, #09090b);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        /* --- Screen Size Adaptations --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 15px;
+            }
+
+            .section-card {
+                padding: 22px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 17px;
+            }
+
+            ul li {
+                font-size: 13.5px;
+            }
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes pulse-glow {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
+<style id="sb_cln_style">ins[class*="adsbygoogle"],ins[class*="adsbyadop"],[id*="div-gpt-ad"],amp-ad{display:none !important;}</style></head>
+<body>
+
+    <!-- Dynamic Background Motion Blobs -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <img src="https://i.ibb.co/WYzF1Dr/ea3be3b764ba.jpg" alt="Fresh Tg Logo" class="logo">
+            </div>
+            <h1>VILLAGEE SMS</h1>
+            <p class="subtitle">Official Terms, Conditions &amp; Usage Policies</p>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section-card visible">
+            <h2>📖 Bot Usage &amp; Operations</h2>
+            <ul>
+                <li><strong>Menu Navigation:</strong> Access bot services strictly using the built-in inline button interface.</li>
+                <li><strong>Configuration Checks:</strong> Ensure the selected country, registration year, and account specifications match your structural requirements before ordering.</li>
+                <li><strong>Balance Prerequisites:</strong> Sufficient store balance must be credited to your account before generating credential parameters.</li>
+                <li><strong>Operational Setup:</strong> Carefully review and execute configuration instructions when adding virtual credentials to your native client software.</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Server 1 & Server 2 Policy -->
+        <div class="section-card alert-box visible">
+            <h2>📡 Server 1 &amp; Server 2 Guidelines</h2>
+            <ul>
+                <li><strong>OTP delivery Boundaries:</strong> Our service capability is strictly limited to delivering the authorization code (OTP). Displaying the code inside the bot completes administrative fulfillment.</li>
+                <li><strong>Longevity Exclusions:</strong> No warranties are provided regarding account lifespan. Virtual credentials are fundamentally subject to regional parameters, proxy behaviors, and third-party security routines.</li>
+                <li><strong>Refund Policy:</strong> Once the OTP code has been generated and displayed on-screen, requests for balance reinstatements, cancellations, or transfers will not be processed under any circumstances.In server 1 No refund even if login fails after OTP received or didn't receive OTP.</li>
+                <li><strong>Intended Usage:</strong> All accounts provided across Server 1 and Server 2 are designed for structured testing, automation, or marketing configurations. All associated use cases are executed at the owner's risk.</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Proxy / VPN Warning -->
+        <div class="section-card visible">
+            <h2>🌐 Proxy &amp; Network Environment Warning</h2>
+            <ul>
+                <li><strong>Proxy Vulnerability:</strong> Low-reputation VPN networks, public data proxies, server-center IPs, or rapid geolocation changes will trigger immediate, automatic restrictions from Telegram.</li>
+                <li><strong>Network Responsibility:</strong> Users assume full, sole responsibility for procuring and configuring clean, high-quality, residential network proxies post-purchase.</li>
+                <li><strong>System Bans:</strong> Technical failures, locks, or credential restrictions caused by poor proxy hygiene or abusive client setups are ineligible for administrative replacement.</li>
+            </ul>
+        </div>
+
+        <!-- Section 4: Account Security Responsibility -->
+        <div class="section-card secure-box visible">
+            <h2>🛡️ Account Security &amp; Maintenance</h2>
+            <ul>
+                <li><strong>Post-Delivery Ownership:</strong> Buyers are fully responsible for securing accounts immediately after the delivery of credentials.</li>
+                <li><strong>Recommended Measures:</strong> We highly recommend enabling dynamic Two-Factor Authentication (2FA), configuring secure email recovery parameters, and using stable, dedicated IP address pools.</li>
+                <li><strong>Limitation of Risk:</strong> The platform is not liable for data loss, session termination, or recovery failures resulting from inadequate security management.</li>
+            </ul>
+        </div>
+
+        <!-- Section 5: Prohibited Activities -->
+        <div class="section-card alert-box visible">
+            <h2>🚫 Prohibited Platform Activities</h2>
+            <ul>
+                <li><strong>Abusive Usage:</strong> Purchased credentials may not be used for fraudulent activities, phishing campaigns, targeted harassment, illicit materials propagation, or server spamming.</li>
+                <li><strong>Regulatory Cooperation:</strong> Any valid, regulatory law enforcement requests or structural investigations into illicit actions will be reviewed in strict accordance with applicable legal guidelines.</li>
+                <li><strong>Privilege Revocation:</strong> We reserve the right to suspend or block access for user IDs associated with highly anomalous, malicious, or illegal activities.</li>
+            </ul>
+        </div>
+
+        <!-- Section 6: Payments & Deposits -->
+        <div class="section-card secure-box visible">
+            <h2>💳 Financial Policy &amp; Manual Deposits</h2>
+            <ul>
+                <li><strong>Irreversible Deposits:</strong> Funds successfully added to your profile wallet are consumed immediately and cannot be withdrawn or returned.</li>
+                <li><strong>Keypad Integrity:</strong> Manual payment requests must state the exact numeric amount settled. Fraudulent or manipulated payment submissions may result in rejection, suspension, or permanent termination of platform access.</li>
+                <li><strong>Receipt Verification:</strong> Manual deposit claims must be accompanied by an unmodified, full-page screenshot clearly displaying the transaction ID, date, and UTR.</li>
+                <li><strong>Rotational Addresses:</strong> Always generate a fresh payment address before initiating deposits. Transfers to previous or expired addresses are unrecoverable.</li>
+                <li><strong>Balance Expiration:</strong> Store credits left completely unused for over 6 consecutive months will be retired automatically, with no recovery options available.</li>
+            </ul>
+        </div>
+
+        <!-- Section 7: Chargeback & Payment Disputes -->
+        <div class="section-card alert-box visible">
+            <h2>⚖️ Chargebacks &amp; Payment Disputes</h2>
+            <ul>
+                <li><strong>Dispute Penalty:</strong> Initiating fraudulent chargebacks, bad-faith disputes, or false payment claims will result in immediate termination of store privileges and permanent IP bans.</li>
+                <li><strong>Evidence Disclosure:</strong> During dispute evaluations, transaction history logs, verification metadata, and tracking identifiers will be submitted to the processing networks.</li>
+            </ul>
+        </div>
+
+        <!-- Section 8: Seller Upload Rules -->
+        <div class="section-card visible">
+            <h2>🤝 Seller Terms &amp; Listing Rules</h2>
+            <ul>
+                <li><strong>Session Integrity:</strong> Sellers must list strictly valid, uncompromised session credentials. Sessions found to be dead, blocked, or recovered during initial validation checks are rejected.</li>
+                <li><strong>Credential Hijacking:</strong> If a seller re-accesses or recovers a listing after its sale, their account will be permanently banned and their details will be published to global industry blacklists.</li>
+                <li><strong>Hold Windows:</strong> Funds from sales are held in a strict 10-minute escrow loop during checking phases and are credited to your withdrawable balance once cleared.</li>
+            </ul>
+        </div>
+
+        <!-- Section 9: Service Availability -->
+        <div class="section-card visible">
+            <h2>⚙️ Service Availability &amp; Maintenance</h2>
+            <ul>
+                <li><strong>No Uptime Guarantee:</strong> Platform services, third-party API dependencies, and real-time catalog connections are not guaranteed to be active 24/7.</li>
+                <li><strong>Service Pauses:</strong> Routine server maintenance, catalog changes, network outages, or API disruptions may occur at any time without prior notice.</li>
+            </ul>
+        </div>
+
+        <!-- Section 10: Privacy & Data Handling -->
+        <div class="section-card">
+            <h2>🔒 Privacy &amp; Data Handling</h2>
+            <ul>
+                <li><strong>Technical Logs:</strong> Limited connection metadata and security records are stored strictly for fraud detection and service optimization.</li>
+                <li><strong>No Permanent Storage:</strong> We do not guarantee long-term retention of delivery logs, active OTP histories, or uploaded seller files. Users must secure their own backups.</li>
+            </ul>
+        </div>
+
+        <!-- Section 11: Digital Goods Disclaimer -->
+        <div class="section-card alert-box">
+            <h2>📦 Digital Goods Disclaimer</h2>
+            <ul>
+                <li><strong>Digital Classification:</strong> All store items and virtual coordinates are classified as digital goods and services under consumer protection regulations.</li>
+                <li><strong>Final Sale:</strong> Due to the instant and irreversible nature of virtual coordinate deliveries, refunds are unavailable once the credential delivery has been completed.</li>
+            </ul>
+        </div>
+
+        <!-- Section 12: Modification of Terms -->
+        <div class="section-card">
+            <h2>📝 Modification of Policies</h2>
+            <ul>
+                <li>We reserve the right to modify, adjust, or completely replace these Terms &amp; Conditions at any point.</li>
+                <li>Your continued engagement with our bot and platform resources indicates your binding acceptance of the updated rules.</li>
+            </ul>
+        </div>
+
+        <!-- Section 13: Agreement Confirmation -->
+        <div class="section-card secure-box visible">
+            <h2>✅ Agreement &amp; Confirmation</h2>
+            <ul>
+                <li>By maintaining an active profile or utilizing our catalog, you automatically confirm you have read, understood, and agreed to these Terms in their entirety.</li>
+                <li>If you do not agree with any of the terms or policies listed above, you must discontinue your use of our services immediately.</li>
+            </ul>
+        </div>
+
+        <!-- Footer / Links -->
+        <div class="footer visible">
+            <h2 style="justify-content: center; color: #fff;">Official Directory</h2>
+            <div class="links-container">
+                <a href="https://t.me/VILLAGEE_SMS_BOT" class="btn" target="_blank">🤖 Official Bot</a>
+                <a href=https://t.me/VILLAGEE_SMS_UPDATEs" class="btn" target="_blank">📢 Official Channel</a>
+                <a href="t.me/VILLAGEE_SMS_SUPPORT" class="btn" target="_blank">👨‍💻 Support Contact</a>
+            </div>
+            <p style="margin-top: 35px; font-size: 13px; color: #444; font-weight: 500;">
+                Terms Version 2.4 • Last Updated: May 2026
+            </p>
+            <p style="margin-top: 10px; font-size: 12px; color: #333;">
+                © 2024-2026 VILLAGEE SMS. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const cards = document.querySelectorAll('.section-card, .footer');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
